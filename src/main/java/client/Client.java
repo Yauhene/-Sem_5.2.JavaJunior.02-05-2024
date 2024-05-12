@@ -16,13 +16,12 @@ public class Client {
         Socket server = new Socket("localhost", ServerMain.SERVER_PORT);
         System.out.println("Подключение к серверу успешно");
         Scanner in = new Scanner(server.getInputStream());
-        ObjectOutputStream out = new ObjectOutputStream(server.getOutputStream());
-
-        Map<String, String> msg = new HashMap<>();
-        msg.put("login", login);
-        out.writeObject(msg);
-
-        System.out.println(login);
+        PrintWriter out = new PrintWriter(server.getOutputStream(), true);
+//        Map<String, String> msg = new HashMap<>();
+//        msg.put("login", login);
+//        out.println(msg);
+//
+        out.println(login);
 
         // Поток на чтение
         new Thread(() -> {
@@ -38,11 +37,10 @@ public class Client {
         new Thread(() -> {
             while (true) {
                 String inputFromConsole = console.nextLine();
-                System.out.println(inputFromConsole);
+                out.println(inputFromConsole);
             }
         }).start();
     }
-
 }
 
 
