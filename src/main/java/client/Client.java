@@ -21,6 +21,7 @@ public class Client {
 //        msg.put("login", login);
 //        out.println(msg);
 //
+//        out.println(login);
         out.println(login);
 
         // Поток на чтение

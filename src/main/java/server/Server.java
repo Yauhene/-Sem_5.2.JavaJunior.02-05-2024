@@ -19,6 +19,8 @@ public class Server {
 
                 String clientLogin = client.getLogin();
 
+// control               System.out.println("clients.containsKey(clientLogin) is: " + clients.containsKey(clientLogin));
+
                 if (clients.containsKey(clientLogin)) {
                     client.sendMessage("Пользователь с таким логином уже подключен");
                     client.close();
@@ -27,6 +29,7 @@ public class Server {
 
                 clients.put(clientLogin, client);
                 sendMessageToAll("Подключился новый клиент: " + clientLogin);
+// control               System.out.println("Map of Clients: " + clients);
 
                 client.setOnCloseHandler(() -> {
                     clients.remove(clientLogin);

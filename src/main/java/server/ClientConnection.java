@@ -26,10 +26,11 @@ public class ClientConnection implements Runnable {
 
         this.login = input.nextLine();
 
-        String msg = input.nextLine();
-        Map<String, String> message = new HashMap<>();
-        message.put(login, msg) ;
-        message.get("to");
+//        String msg = input.nextLine();
+
+//        Map<String, String> message = new HashMap<>();
+//        message.put(login, msg) ;
+//        message.get("to");
 
 
     }
@@ -51,7 +52,8 @@ public class ClientConnection implements Runnable {
         try {
             while (true) {
                 String msgFromClient = input.nextLine(); // json
-                if (Objects.equals("exit", msgFromClient)) {
+                if (msgFromClient.equals("exit")) {
+// change               if (Objects.equals("exit", msgFromClient)) {
                     System.out.println("Клиент отключился");
                     break;
                 }
